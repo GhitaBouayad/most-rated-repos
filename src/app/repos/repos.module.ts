@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReposComponent } from './repos/repos.component';
+import { ReposComponent } from './repos.component';
 
 @NgModule({
   declarations: [ReposComponent],
