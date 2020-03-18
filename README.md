@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
+## Description 
+
+This is a coding challenge proposed by Gemography. It consists of a small webapp that lists the most starred Github repos that were created in the last 30 days. The JSON data is being fetched directly from the Github API : https://developer.github.com/v3/search/#search-repositories .
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

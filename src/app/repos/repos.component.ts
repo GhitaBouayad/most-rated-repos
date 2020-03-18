@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IRepoDetails } from '../shared/interfaces';
 
 @Component({
   selector: 'app-repos',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./repos.component.css']
 })
 export class ReposComponent implements OnInit {
+
+  repos: IRepoDetails[];
 
   constructor() { }
 
