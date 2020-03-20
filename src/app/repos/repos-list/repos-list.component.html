@@ -7,7 +7,7 @@
         </a>
         <div class="repo-description" >
             <div class="repo-title"><a [href]= "repo['html_url']">{{repo['full_name']}}</a></div>
-            <p> {{repo.description}}</p>
+            <p> {{repo.description | charLimit}}</p>
             <div class="repo-description-footer">
               <div class="repo-description-footer-box"><a><b>{{repo['stargazers_count']}}</b></a></div>
               <div class="repo-description-footer-box"><a>{{repo['open_issues_count']}}</a></div>
