@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/most-rated-repos'},
+  { path: '**', pathMatch: 'full', redirectTo: '/most-rated-repos' }
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
