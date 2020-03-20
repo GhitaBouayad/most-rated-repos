@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 import { DataService } from '../core/data.service';
 
@@ -8,14 +8,14 @@ import { DataService } from '../core/data.service';
   styleUrls: ['./repos.component.css']
 })
 export class ReposComponent implements OnInit {
+  page : number;
+  repos;
 
-  repos: Object;
-
-  constructor(private dataService: DataService) {
-    this.dataService.getRepos().subscribe(reposList => this.repos = reposList.items)
+  constructor(private dataService: DataService){
+    this.page = 1;
    }
 
   ngOnInit() {
+    this.dataService.getReposByPage(this.page).subscribe(reposList => this.repos = reposList.items)
   }
-
 }

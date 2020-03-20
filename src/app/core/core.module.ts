@@ -12,6 +12,7 @@ import {DataService} from './data.service'
   ],
   providers: [
     DataService,
+
   ]
 })
 export class CoreModule { }

@@ -1,54 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import { map, catchError } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class DataService {
 
-    baseUrl: string = 'https://api.github.com/search/repositories';
-
+  BASE_URL = `https://api.github.com/search/repositories?q=created:%3E2017-10-22&sort=stars&order=desc`
 
     constructor(private http: HttpClient) { }
 
-    getRepos() : Observable<any>{
-      // Initialize Params Objects
-      let params = new HttpParams();
-
-      params = params.append('q', 'created:>2017-10-22');
-      params = params.append('sort', 'stars');
-      params = params.append('order', 'desc');
-      params = params.append('page', '1');
-        return this.http.get<any>(this.baseUrl, {params: params})
-            .pipe(
-                catchError(this.handleError)
-            );
-    }
-/*
-    getCustomer(id: number) : Observable<ICustomer> {
-      return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
-        .pipe(
-          map(customers => {
-            let customer = customers.filter((cust: ICustomer) => cust.id === id);
-            return (customer && customer.length) ? customer[0] : null;
-          }),
-          catchError(this.handleError)
-        )
+    getRepos() : Observable<any> {
+      return this.http.get<any[]>(this.BASE_URL)
+      .pipe(
+        catchError(this.handleError)
+      );
     }
 
-    getOrders(id: number) : Observable<IOrder[]> {
-      return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')
-        .pipe(
-          map(orders => {
-            let custOrders = orders.filter((order: IOrder) => order.customerId === id);
-            return custOrders;
-          }),
-          catchError(this.handleError)
-        );
-    } */
-
+    getReposByPage(page: number = 1) : Observable<any> {
+      return this.http.get<any[]>(this.BASE_URL + `&page=${page.toString()}&per_page=30`)
+      .pipe(
+        catchError(this.handleError)
+      );
+    }
 
     private handleError(error: any) {
       console.error('server error:', error);

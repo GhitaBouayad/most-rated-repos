@@ -34,6 +34,10 @@ body{
   padding: 10px 10px;
 }
 
+.box-row-flex{
+  display:flex;
+}
+
 .box-row:hover {
   background-color: #f6f9fc;
   cursor: pointer;

@@ -9,7 +9,7 @@ export class TimeInterval implements PipeTransform {
             var dateSubmitted= new Date(value);
             var today= new Date();
             let timeDifference = this.date_diff_indays(dateSubmitted, today);
-            return 'Submitted ' + timeDifference + ' ago';
+            return  timeDifference;
         }
         return value;
     }
