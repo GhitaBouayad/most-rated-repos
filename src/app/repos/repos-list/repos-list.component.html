@@ -11,7 +11,7 @@
             <div class="repo-description-footer">
               <div class="repo-description-footer-box"><a><b>{{repo['stargazers_count']}}</b></a></div>
               <div class="repo-description-footer-box"><a>{{repo['open_issues_count']}}</a></div>
-              <div class="duration-owner"><a> {{repo['pushed_at'] | date }} by {{repo.owner.login}}</a></div>
+              <div class="duration-owner"><a> {{repo['pushed_at'] | timeInterval }} by {{repo.owner.login}}</a></div>
             </div>
         </div>
 

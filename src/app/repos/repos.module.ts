@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ReposComponent } from './repos.component';
 import { ReposListComponent } from './repos-list/repos-list.component';
+import {SharedModule} from '../shared/shared.module'
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { ReposListComponent } from './repos-list/repos-list.component';
     ReposListComponent
   ],
   imports: [
+    SharedModule,
     CommonModule
   ],
   exports:[ReposComponent]

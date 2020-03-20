@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -8,12 +8,20 @@ import { map, catchError } from 'rxjs/operators';
 @Injectable()
 export class DataService {
 
-    baseUrl: string = 'https://api.github.com/search/repositories?q=created:%3E2017-10-22&sort=stars&order=desc';
+    baseUrl: string = 'https://api.github.com/search/repositories';
+
 
     constructor(private http: HttpClient) { }
 
     getRepos() : Observable<any>{
-        return this.http.get<any>(this.baseUrl)
+      // Initialize Params Objects
+      let params = new HttpParams();
+
+      params = params.append('q', 'created:>2017-10-22');
+      params = params.append('sort', 'stars');
+      params = params.append('order', 'desc');
+      params = params.append('page', '1');
+        return this.http.get<any>(this.baseUrl, {params: params})
             .pipe(
                 catchError(this.handleError)
             );
