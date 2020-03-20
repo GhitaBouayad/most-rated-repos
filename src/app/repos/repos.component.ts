@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IRepoDetails } from '../shared/interfaces';
+
+import { DataService } from '../core/data.service';
 
 @Component({
   selector: 'app-repos',
@@ -8,9 +9,11 @@ import { IRepoDetails } from '../shared/interfaces';
 })
 export class ReposComponent implements OnInit {
 
-  repos: IRepoDetails[];
+  repos: Object;
 
-  constructor() { }
+  constructor(private dataService: DataService) {
+    this.dataService.getRepos().subscribe(reposList => this.repos = reposList.items)
+   }
 
   ngOnInit() {
   }

@@ -1,3 +1,23 @@
-<p>
-  repos-list works!
-</p>
+<body>
+<div class=" box">
+    <div class="list-header"> List of the best rated repos</div>
+    <div class="box-row" *ngFor="let repo of reposList">
+        <a class="avatar">
+            <img height="125" width="125" alt="@UserName" [src]="repo.owner['avatar_url']">
+        </a>
+        <div class="repo-description" >
+            <div class="repo-title"><a [href]= "repo['html_url']">{{repo['full_name']}}</a></div>
+            <p> {{repo.description}}</p>
+            <div class="repo-description-footer">
+              <div class="repo-description-footer-box"><a><b>{{repo['stargazers_count']}}</b></a></div>
+              <div class="repo-description-footer-box"><a>{{repo['open_issues_count']}}</a></div>
+              <div class="duration-owner"><a> {{repo['pushed_at'] | date }} by {{repo.owner.login}}</a></div>
+            </div>
+        </div>
+
+      <div>
+
+      </div>
+    </div>
+  </div>
+</body>
