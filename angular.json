@@ -57,7 +57,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "most-rated-repos:build"
+            "browserTarget": "most-rated-repos:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

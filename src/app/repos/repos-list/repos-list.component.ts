@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { DataService } from '../../core/data.service';
+import { isPlatformWorkerApp } from '@angular/common';
 
 @Component({
   selector: 'app-repos-list',
@@ -11,9 +12,9 @@ import { DataService } from '../../core/data.service';
 export class ReposListComponent implements OnInit {
   //@Input() reposList:Object;
   page : number = 1;
-
+  lastPageNumber: number = 0;
+  itemsPerPage: number = 0;
   reposList;
-  sortedList
 
   constructor(private dataService: DataService) { }
 
@@ -22,17 +23,21 @@ export class ReposListComponent implements OnInit {
   }
 
   getReposDetails(){
-    this.dataService.getReposByPage(this.page).subscribe(repos => {
-      this.reposList = repos.items
+    this.dataService.getReposByPage(1).subscribe(repos => {
+      this.reposList = repos.items;
+      this.lastPageNumber = this.dataService.getLastPageNumber();
     })
   }
 
   onScroll() {
-    this.page = this.page ++;
-    this.dataService.getReposByPage(this.page).subscribe(repos => {
-      this.reposList = this.reposList.concat(repos.items);
-    })
+    if(this.page<= this.lastPageNumber){
+      this.page++;
+      this.dataService.getReposByPage(this.page).subscribe(repos => {
+        //const found = repos.item.some(r=> this.reposList.includes(r))
+          this.itemsPerPage = this.reposList.length     
+          console.log('Items per page: ' + this.itemsPerPage )
+          this.reposList = this.reposList.concat(repos.items);
+      })
+    }
   }
-
-
 }

@@ -1,7 +1,7 @@
 <body>
 <div class=" box">
     <div class="list-header"> List of the best rated repos</div>
-    <div *ngFor="let repo of reposList" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="70" (scrolled)="onScroll()" [scrollWindow]="true" >
+    <div *ngFor="let repo of reposList" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="20" (scrolled)="onScroll()" [scrollWindow]="true" >
       <div class="box-row" *ngIf="!((repo['pushed_at'] | timeInterval)>30)" >
         <div class="box-row-flex" *ngIf="!((repo['pushed_at'] | timeInterval)>30)">
           <a class="avatar">

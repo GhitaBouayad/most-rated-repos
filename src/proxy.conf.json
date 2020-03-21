@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://api.github.com/search/repositories",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
