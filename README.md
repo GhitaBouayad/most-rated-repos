@@ -24,8 +24,9 @@ The template inspired by github was made manually.
   <li>Node.js
   <li>Angular version 7.2.1.
 <ul>
- 
+  
 ## Installing
+
 With npm do : 
 
 ```cmd
