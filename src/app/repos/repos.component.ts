@@ -7,7 +7,6 @@ import { Component,OnInit } from '@angular/core';
 })
 export class ReposComponent implements OnInit {
   page : number;
-  repos;
 
   constructor(){
    }

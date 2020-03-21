@@ -5,8 +5,9 @@ export class TimeInterval implements PipeTransform {
 
     transform(value: any) {
         if (value) {
-            //Set the two dates
+            //Date of when the repos was submitted
             var dateSubmitted= new Date(value);
+            //Today's date
             var today= new Date();
             let timeDifference = this.date_diff_indays(dateSubmitted, today);
             return  timeDifference;
@@ -14,6 +15,7 @@ export class TimeInterval implements PipeTransform {
         return value;
     }
 
+    //Calculating the difference between two dates in terms of dates
      date_diff_indays = function(date1, date2) {
       let dt1 = new Date(date1);
       let dt2 = new Date(date2);

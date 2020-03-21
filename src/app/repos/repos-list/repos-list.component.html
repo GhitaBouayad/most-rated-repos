@@ -1,18 +1,21 @@
-<body>
+<body infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50" (scrolled)="onScroll()" [scrollWindow]="false">
 <div class=" box">
     <div class="list-header"> List of the best rated repos</div>
-    <div *ngFor="let repo of reposList" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="20" (scrolled)="onScroll()" [scrollWindow]="true" >
+    <div *ngFor="let repo of filteredList"  >
+      <!-- Displaying only the most rated repos in the last 30 days only using the timeInterval pipe-->
       <div class="box-row" *ngIf="!((repo['pushed_at'] | timeInterval)>30)" >
-        <div class="box-row-flex" *ngIf="!((repo['pushed_at'] | timeInterval)>30)">
+        <div class="box-row-flex">
           <a class="avatar">
               <img height="125" width="125" alt="@UserName" [src]="repo.owner['avatar_url']">
           </a>
           <div class="repo-description" >
               <div class="repo-title"><a [href]= "repo['html_url']">{{repo['full_name']}}</a></div>
+              <!-- If carachters of description exceeds 150 show ... after it using the charLimit pipe-->
               <p> {{repo.description | charLimit}}</p>
               <div class="repo-description-footer">
                 <div class="repo-description-footer-box"><a><b>{{repo['stargazers_count']}}</b></a></div>
                 <div class="repo-description-footer-box"><a>{{repo['open_issues_count']}}</a></div>
+                <!-- Using the pipe timeInterval to display how many days ago the repo was submitted until today -->
                 <div class="duration-owner"><a> Submitted {{repo['pushed_at'] | timeInterval }} days ago by {{repo.owner.login}}</a></div>
               </div>
           </div>
