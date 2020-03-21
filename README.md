@@ -19,14 +19,14 @@ The template inspired by github was made manually.
 ![alt text](https://github.com/GhitaBouayad/most-rated-repos/blob/master/screenshots/2.PNG)
 ![alt text](https://github.com/GhitaBouayad/most-rated-repos/blob/master/screenshots/3.PNG)
 
-## Prerequisites 
-<ul>
-  <li>Node.js
-  <li>Angular version 7.2.1.
-<ul>
-  
-## Installing
+## Prerequisites
 
+<ul>
+  <li>Node.js</li>
+  <li>Angular version 7.2.1.</li>
+</ul>
+
+## Installing
 With npm do : 
 
 ```cmd
@@ -55,3 +55,5 @@ when launching the app, it seems to work properly. But sometimes i just get few 
 
 ![alt text](https://github.com/GhitaBouayad/most-rated-repos/blob/master/screenshots/4.PNG)
 
+   
+   
